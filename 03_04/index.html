@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+  <div id="app">
+    <h1>条件分岐</h1>
+    <div v-show="showFlg">
+      表示されないけどDOMにいる
+    </div>
+
+    <div v-if="showFlg">
+      表示されない
+    </div>
+    <div v-else>
+      表示される
+    </div>
+  </div>
+
+  <div id="app-list">
+    <h1>リスト</h1>
+    <h2>array</h2>
+    <ul v-for="(item, index) in array">
+      <li>{{item}} - {{index}}</li>
+    </ul>
+
+    <h2>object</h2>
+    <ul v-for="(val, key, index) in object">
+      <li>{{val}} - {{key}} - {{index}}</li>
+    </ul>
+
+    <h2>number</h2>
+    <ul v-for="(num, index) in number">
+      <li>{{num}} - {{index}}</li>
+    </ul>
+
+    <h2>string</h2>
+    <ul v-for="(char, index) in string">
+      <li>{{char}} - {{index}}</li>
+    </ul>
+
+  </div>
+
+  <div id="app-listener">
+    <h1>イベントリスナ</h1>
+    <div><button v-on:click="showAlert">alert</button></div>
+    <div><button v-on:click="increment">increment</button> {{count}}</div>
+  </div>
+
+  <div>
+    <h1>フォーム</h1>
+
+    <div id="app-form-text">
+      <h2>テキスト</h2>
+      <input v-model="text">
+      <p>{{text}}</p>
+    </div>
+
+    <div id="app-form-multiline">
+      <h2>複数行テキスト</h2>
+      <textarea v-model="text"></textarea>
+      <p>{{text}}</p>
+    </div>
+
+    <div id="app-form-checkbox">
+      <h2>チェックボックス</h2>
+      <div>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{checked}}</label>
+      </div>
+      <div>
+        <input type="checkbox" id="kongou" value="Kongou" v-model="checkedNames">
+        <label for="kongou">Kongou</label>
+
+        <input type="checkbox" id="hiei" value="Hiei" v-model="checkedNames">
+        <label for="hiei">Hiei</label>
+
+        <input type="checkbox" id="haruna" value="Haruna" v-model="checkedNames">
+        <label for="haruna">Haruna</label>
+
+        <input type="checkbox" id="kirishima" value="Kirishima" v-model="checkedNames">
+        <label for="kirishima">Kirishima</label>
+
+        <br>
+        <span>{{checkedNames}}</span>
+      </div>
+    </div>
+
+    <div id="app-form-radio">
+      <h2>ラジオボタン</h2>
+      <input type="radio" id="fm" value="FM" v-model="modulation">
+      <label for="fm">FM</label>
+      <br>
+      <input type="radio" id= "am" value="AM" v-model="modulation">
+      <label for="am">AM</label>
+      <br>
+      <span>Modulation: {{modulation}}</span>
+    </div>
+
+    <div id="app-form-select">
+      <div>
+        <select v-model="hisyo">
+          <option disabled value="">秘書艦を選んでください</option>
+          <option>金剛</option>
+          <option>比叡</option>
+          <option>榛名</option>
+          <option>霧島</option>
+        </select>
+        <span>秘書艦: {{hisyo}}</span>
+      </div>
+      <div>
+        <select v-model="kantai" multiple>
+          <option disabled value="">艦隊を組むための艦娘を選んでください</option>
+          <option>金剛</option>
+          <option>比叡</option>
+          <option>榛名</option>
+          <option>霧島</option>
+        </select>
+        <span>艦隊: {{kantai}}</span>
+      </div>
+    </div>
+  </div>
+
+  <script src="../vue.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
