@@ -11,7 +11,12 @@
       <input type="submit" val="追加">
     </form>
     <ul v-for="item in list">
-      <li>{{item}}
+      <li v-on:click="doneTodo(item)">
+        <span>status: {{item.status}}</span>
+        <s v-if="item.status == 'done'">
+          {{item.text}}
+        </s>
+        <span v-else>{{item.text}}</span>
       </li>
     </ul>
   </div>
