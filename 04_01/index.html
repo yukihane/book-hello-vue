@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+</head>
+<body>
+
+  <div id="app">
+    <form>
+      <input v-model="todo">
+      <input type="submit" val="追加">
+    </form>
+    <!-- 確認用 -->
+    {{todo}}
+  </div>
+
+  <script src="../vue.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
